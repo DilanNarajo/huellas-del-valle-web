@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+ * Tokens · Huellas del Valle
+ * Claro en :root, oscuro en .dark (next-themes, oscuro por defecto).
+ * Acento teal/esmeralda "veterinario" + violeta sutil.
+ * ------------------------------------------------------------------------ */
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.985 0.004 240);
+  --foreground: oklch(0.21 0.025 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.025 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.025 255);
+  --primary: oklch(0.56 0.115 178);
+  --primary-foreground: oklch(0.99 0.01 178);
+  --secondary: oklch(0.955 0.008 240);
+  --secondary-foreground: oklch(0.26 0.025 255);
+  --muted: oklch(0.96 0.006 240);
+  --muted-foreground: oklch(0.49 0.022 255);
+  --accent: oklch(0.94 0.035 178);
+  --accent-foreground: oklch(0.32 0.07 178);
+  --destructive: oklch(0.58 0.21 18);
+  --border: oklch(0.25 0.03 255 / 11%);
+  --input: oklch(0.25 0.03 255 / 16%);
+  --ring: oklch(0.56 0.115 178);
+
+  --violet: oklch(0.55 0.2 295);
+  --glow-a: oklch(0.75 0.13 178 / 22%);
+  --glow-b: oklch(0.7 0.16 295 / 14%);
+  --grid-line: oklch(0.25 0.03 255 / 5.5%);
+  --glass: oklch(1 0 0 / 72%);
+  --glass-highlight: oklch(1 0 0 / 90%);
+
+  /* Estados del proceso */
+  --ok: oklch(0.55 0.14 162);
+  --ok-soft: oklch(0.55 0.14 162 / 11%);
+  --warn: oklch(0.6 0.14 62);
+  --warn-soft: oklch(0.72 0.15 75 / 16%);
+  --bad: oklch(0.57 0.2 15);
+  --bad-soft: oklch(0.6 0.2 15 / 11%);
+  --fallback: oklch(0.5 0.045 250);
+  --fallback-soft: oklch(0.5 0.045 250 / 12%);
+}
+
+.dark {
+  --background: oklch(0.145 0.014 255);
+  --foreground: oklch(0.955 0.006 250);
+  --card: oklch(0.18 0.016 255);
+  --card-foreground: oklch(0.955 0.006 250);
+  --popover: oklch(0.195 0.018 255);
+  --popover-foreground: oklch(0.955 0.006 250);
+  --primary: oklch(0.8 0.135 172);
+  --primary-foreground: oklch(0.2 0.04 180);
+  --secondary: oklch(0.235 0.018 255);
+  --secondary-foreground: oklch(0.93 0.008 250);
+  --muted: oklch(0.22 0.016 255);
+  --muted-foreground: oklch(0.71 0.018 252);
+  --accent: oklch(0.28 0.045 190);
+  --accent-foreground: oklch(0.93 0.07 172);
+  --destructive: oklch(0.68 0.19 18);
+  --border: oklch(1 0 0 / 8.5%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.8 0.135 172);
+
+  --violet: oklch(0.72 0.16 295);
+  --glow-a: oklch(0.72 0.14 175 / 17%);
+  --glow-b: oklch(0.6 0.2 295 / 13%);
+  --grid-line: oklch(1 0 0 / 3.6%);
+  --glass: oklch(0.19 0.017 255 / 62%);
+  --glass-highlight: oklch(1 0 0 / 7%);
+
+  --ok: oklch(0.8 0.15 162);
+  --ok-soft: oklch(0.8 0.15 162 / 12%);
+  --warn: oklch(0.84 0.14 80);
+  --warn-soft: oklch(0.84 0.14 80 / 12%);
+  --bad: oklch(0.73 0.17 15);
+  --bad-soft: oklch(0.73 0.17 15 / 13%);
+  --fallback: oklch(0.76 0.04 250);
+  --fallback-soft: oklch(0.76 0.04 250 / 12%);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-violet: var(--violet);
+
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-fallback: var(--fallback);
+  --color-fallback-soft: var(--fallback-soft);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 30%, transparent);
+  }
+}
+
+/* Fondo: grid sutil + glow radial teal/violeta */
+.app-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 32rem at 12% -8%, var(--glow-a), transparent 65%),
+    radial-gradient(50rem 30rem at 95% 0%, var(--glow-b), transparent 60%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    44px 44px,
+    44px 44px;
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+
+/* Tarjeta glass con borde 1px y highlight superior */
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 1px 2px 0 oklch(0 0 0 / 6%),
+    0 12px 32px -16px oklch(0 0 0 / 22%);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Trama para cupos precargados (ocupados sin detalle en CITAS) */
+@utility hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--fallback) 9%, transparent) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
